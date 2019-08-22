@@ -1,10 +1,12 @@
 <template>
-  <div>head</div>
+  <div>
+      ratings
+  </div>
 </template>
 
 <script>
 export default {
-    name:"Header"
+
 }
 
 </script>
