@@ -24,8 +24,23 @@
 
 <script>
 import Headd from "./components/head/head"
+
 export default {
   name: 'App',
+  data(){
+      return{
+          seller:{}
+      }
+  },
+  created(){
+      this.axios.get("/api/seller").then((response)=>{
+          response=response.json();
+          if(response.error=== 0){
+              this.seller=response.data
+              console.log(this.seller)
+          }
+      })
+  },
   components:{
     Headd
   }
@@ -37,6 +52,7 @@ export default {
     display flex
     width 100%
     line-height 40px
+    border-bottom 0.01rem solid #eee
     .nav  
         flex 1
         text-align center
