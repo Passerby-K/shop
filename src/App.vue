@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <router-view/> -->
-    <headd></headd>
+    <headd :seller="seller"></headd>
     <div class="content">
         <div class="nav">
             <!-- <a v-link="{path:'/goods'}">商品</a>     -->
@@ -24,21 +24,21 @@
 
 <script>
 import Headd from "./components/head/head"
-
 export default {
   name: 'App',
   data(){
       return{
-          seller:{}
+          seller:""
       }
   },
   created(){
       this.axios.get("/api/seller").then((response)=>{
-          response=response.json();
-          if(response.error=== 0){
-              this.seller=response.data
-              console.log(this.seller)
-          }
+        this.seller=response.data.data
+        console.log(this.seller)
+        console.log(this.seller.supports.length)
+        
+          
+          
       })
   },
   components:{
